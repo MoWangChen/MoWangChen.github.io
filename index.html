@@ -222,6 +222,269 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/15/WIFI一键连接 iOS端 Configuration Profile 方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mowangchen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="莫忘尘的收纳盒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/15/WIFI一键连接 iOS端 Configuration Profile 方式/" itemprop="url">WIFI一键连接 iOS端 Configuration Profile 方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T19:39:00+08:00">
+                2017-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote><p>去年今日此门中,<br>人面桃花相映红.<br>人面不知何处去,<br>桃花依旧笑春风.</p>
+</blockquote>
+<h2 id="一、创建Configuration-Profile"><a href="#一、创建Configuration-Profile" class="headerlink" title="一、创建Configuration Profile"></a>一、创建Configuration Profile</h2><p>1.安装<code>Apple Configurator</code>工具</p>
+<p>2.打开软件，工具栏：<code>文件</code> - <code>新建描述文件</code></p>
+<p>3.通用界面配置必备信息</p>
+<p>（此处，配置文件的标识符相同，安装时，会覆盖安装）</p>
+<p><img src="https://github.com/MoWangChen/Blog/raw/master/ScreenShot/wifi1.png" height="300" width="400"></p>
+<p>4.左侧选择 Wi-Fi 项，进行 Wifi 信息配置</p>
+<p><img src="https://github.com/MoWangChen/Blog/raw/master/ScreenShot/wifi2.png" height="300" width="400"></p>
+<p>5.上述配置完成后，工具栏：<code>文件</code> - <code>存储</code>， 保存位置就会有一个 wifi.mobileconfig 文件</p>
+<p><img src="https://github.com/MoWangChen/Blog/raw/master/ScreenShot/wifi3.png" height="80" width="80"></p>
+<h2 id="二、安装Configuration-Profile"><a href="#二、安装Configuration-Profile" class="headerlink" title="二、安装Configuration Profile"></a>二、安装Configuration Profile</h2><p>There are five ways to deploy configuration profiles:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.Using Apple Configurator 2, available in the App Store</div><div class="line">2.In an email message</div><div class="line">3.On a webpage</div><div class="line">4.Using over-the air configuration as described in Over-the-Air Profile Delivery and Configuration</div><div class="line">5.Over the air using a Mobile Device Management Server</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html</div></pre></td></tr></table></figure>
+<p>上述文档中，苹果提供了五种方式安装配置文件。</p>
+<p>测试时，使用了 加载网页的形式，自己创建了一个配置文件，委托 后端同学 放入后台服务，得到配置文件的下载链接。</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@&quot;File_URL&quot;]];</div></pre></td></tr></table></figure>
+<p>执行时，会调用系统safari加载下载链接，并自动转入系统设置，安装文件。安装完成，系统自动匹配wifi。<br>(测试：app里使用UIWevView控件加载下载链接，不会转入系统设置，无法完成安装）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/iOS变更工程文件目录引起missing file警告/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mowangchen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="莫忘尘的收纳盒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/15/iOS变更工程文件目录引起missing file警告/" itemprop="url">iOS变更工程文件目录引起missing file警告</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-15T18:35:00+08:00">
+                2017-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote><p>斯人若彩虹,遇上方知有.</p>
+</blockquote>
+<p>近期工作中做业务功能，创建类文件时，未指定文件目录，导致文件创建在根目录。显然很影响整个工程目录的结构，所以开始了文件的转移操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.工程中，删除文件引用 Remove Reference</div><div class="line"></div><div class="line">2.工程目录，类文件移动到指定目录中</div><div class="line"></div><div class="line">3.工程中，拖动文件Copy items if needed</div></pre></td></tr></table></figure>
+<p>工程运行正常，但是出现了missing file警告，是由于Xcode自带的source control引起的</p>
+<h3 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.cd 到警告目录下</div><div class="line"></div><div class="line">2.执行 git rm &lt;文件名&gt;</div><div class="line"></div><div class="line">3.clean工程，重新运行</div></pre></td></tr></table></figure>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>查资料，<code>Preference</code> - <code>Source Control</code> – 关闭<code>Enable Source Control</code> 可以解决此警告</p>
+<p>经尝试，关闭<code>Source Control</code>可以解决此警告，但是工程文件目录下，原始目录文件又出现了，指定目录下也有一份文件。所以不建议使用此方法</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/Enum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -406,7 +669,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -414,6 +677,15 @@
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
           
 
         </nav>
@@ -452,7 +724,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
