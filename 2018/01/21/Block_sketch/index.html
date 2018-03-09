@@ -53,7 +53,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS WIFI Profile," />
+  <meta name="keywords" content="iOS block," />
 
 
 
@@ -69,22 +69,18 @@
 
 
 
-<meta name="description" content="去年今日此门中,人面桃花相映红.人面不知何处去,桃花依旧笑春风.  一、创建Configuration Profile1.安装Apple Configurator工具 2.打开软件，工具栏：文件 - 新建描述文件 3.通用界面配置必备信息 （此处，配置文件的标识符相同，安装时，会覆盖安装）  4.左侧选择 Wi-Fi 项，进行 Wifi 信息配置  5.上述配置完成后，工具栏：文件 - 存储， 保">
-<meta name="keywords" content="iOS WIFI Profile">
+<meta name="description" content="常将有日思无日,莫待无时思有时.  很多同学在面试中都有可能被问到__block的问题, 与__weak的比较,或者是其作用.__block都是配合block体使用的,目的是让block内部能修改外部变量的值. 举个例子: 1234567891011121314- (void)testBlock&amp;#123;    typedef void (^Block)(void);        __bloc">
+<meta name="keywords" content="iOS block">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WIFI一键连接 iOS端 Configuration Profile 方式">
-<meta property="og:url" content="https://MoWangChen.github.io/2017/06/15/WIFI_ConfigurationProfile/index.html">
+<meta property="og:title" content="__Block浅谈">
+<meta property="og:url" content="https://MoWangChen.github.io/2018/01/21/Block_sketch/index.html">
 <meta property="og:site_name" content="莫忘尘的收纳盒">
-<meta property="og:description" content="去年今日此门中,人面桃花相映红.人面不知何处去,桃花依旧笑春风.  一、创建Configuration Profile1.安装Apple Configurator工具 2.打开软件，工具栏：文件 - 新建描述文件 3.通用界面配置必备信息 （此处，配置文件的标识符相同，安装时，会覆盖安装）  4.左侧选择 Wi-Fi 项，进行 Wifi 信息配置  5.上述配置完成后，工具栏：文件 - 存储， 保">
+<meta property="og:description" content="常将有日思无日,莫待无时思有时.  很多同学在面试中都有可能被问到__block的问题, 与__weak的比较,或者是其作用.__block都是配合block体使用的,目的是让block内部能修改外部变量的值. 举个例子: 1234567891011121314- (void)testBlock&amp;#123;    typedef void (^Block)(void);        __bloc">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/MoWangChen/Blog/raw/master/ScreenShot/wifi1.png">
-<meta property="og:image" content="https://github.com/MoWangChen/Blog/raw/master/ScreenShot/wifi2.png">
-<meta property="og:image" content="https://github.com/MoWangChen/Blog/raw/master/ScreenShot/wifi3.png">
-<meta property="og:updated_time" content="2018-03-05T08:45:34.540Z">
+<meta property="og:updated_time" content="2018-03-09T08:24:24.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WIFI一键连接 iOS端 Configuration Profile 方式">
-<meta name="twitter:description" content="去年今日此门中,人面桃花相映红.人面不知何处去,桃花依旧笑春风.  一、创建Configuration Profile1.安装Apple Configurator工具 2.打开软件，工具栏：文件 - 新建描述文件 3.通用界面配置必备信息 （此处，配置文件的标识符相同，安装时，会覆盖安装）  4.左侧选择 Wi-Fi 项，进行 Wifi 信息配置  5.上述配置完成后，工具栏：文件 - 存储， 保">
-<meta name="twitter:image" content="https://github.com/MoWangChen/Blog/raw/master/ScreenShot/wifi1.png">
+<meta name="twitter:title" content="__Block浅谈">
+<meta name="twitter:description" content="常将有日思无日,莫待无时思有时.  很多同学在面试中都有可能被问到__block的问题, 与__weak的比较,或者是其作用.__block都是配合block体使用的,目的是让block内部能修改外部变量的值. 举个例子: 1234567891011121314- (void)testBlock&amp;#123;    typedef void (^Block)(void);        __bloc">
 
 
 
@@ -114,13 +110,13 @@
 
 
 
-  <link rel="canonical" href="https://MoWangChen.github.io/2017/06/15/WIFI_ConfigurationProfile/"/>
+  <link rel="canonical" href="https://MoWangChen.github.io/2018/01/21/Block_sketch/"/>
 
 
 
 
 
-  <title>WIFI一键连接 iOS端 Configuration Profile 方式 | 莫忘尘的收纳盒</title>
+  <title>__Block浅谈 | 莫忘尘的收纳盒</title>
   
 
 
@@ -227,7 +223,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://MoWangChen.github.io/2017/06/15/WIFI_ConfigurationProfile/">
+    <link itemprop="mainEntityOfPage" href="https://MoWangChen.github.io/2018/01/21/Block_sketch/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mowangchen">
@@ -244,7 +240,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">WIFI一键连接 iOS端 Configuration Profile 方式</h1>
+          <h1 class="post-title" itemprop="name headline">__Block浅谈</h1>
         
 
         <div class="post-meta">
@@ -256,8 +252,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T19:39:00+08:00">
-                2017-06-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T16:23:00+08:00">
+                2018-01-21
               </time>
             
 
@@ -294,23 +290,20 @@
       
 
       
-        <blockquote><p>去年今日此门中,<br>人面桃花相映红.<br>人面不知何处去,<br>桃花依旧笑春风.</p>
+        <blockquote><p>常将有日思无日,<br>莫待无时思有时.</p>
 </blockquote>
-<h2 id="一、创建Configuration-Profile"><a href="#一、创建Configuration-Profile" class="headerlink" title="一、创建Configuration Profile"></a>一、创建Configuration Profile</h2><p>1.安装<code>Apple Configurator</code>工具</p>
-<p>2.打开软件，工具栏：<code>文件</code> - <code>新建描述文件</code></p>
-<p>3.通用界面配置必备信息</p>
-<p>（此处，配置文件的标识符相同，安装时，会覆盖安装）</p>
-<p><img src="https://github.com/MoWangChen/Blog/raw/master/ScreenShot/wifi1.png" height="300" width="400"></p>
-<p>4.左侧选择 Wi-Fi 项，进行 Wifi 信息配置</p>
-<p><img src="https://github.com/MoWangChen/Blog/raw/master/ScreenShot/wifi2.png" height="300" width="400"></p>
-<p>5.上述配置完成后，工具栏：<code>文件</code> - <code>存储</code>， 保存位置就会有一个 wifi.mobileconfig 文件</p>
-<p><img src="https://github.com/MoWangChen/Blog/raw/master/ScreenShot/wifi3.png" height="80" width="80"></p>
-<h2 id="二、安装Configuration-Profile"><a href="#二、安装Configuration-Profile" class="headerlink" title="二、安装Configuration Profile"></a>二、安装Configuration Profile</h2><p>There are five ways to deploy configuration profiles:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.Using Apple Configurator 2, available in the App Store</div><div class="line">2.In an email message</div><div class="line">3.On a webpage</div><div class="line">4.Using over-the air configuration as described in Over-the-Air Profile Delivery and Configuration</div><div class="line">5.Over the air using a Mobile Device Management Server</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html</div></pre></td></tr></table></figure>
-<p>上述文档中，苹果提供了五种方式安装配置文件。</p>
-<p>测试时，使用了 加载网页的形式，自己创建了一个配置文件，委托 后端同学 放入后台服务，得到配置文件的下载链接。</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@&quot;File_URL&quot;]];</div></pre></td></tr></table></figure>
-<p>执行时，会调用系统safari加载下载链接，并自动转入系统设置，安装文件。安装完成，系统自动匹配wifi。<br>(测试：app里使用UIWevView控件加载下载链接，不会转入系统设置，无法完成安装）</p>
+<p>很多同学在面试中都有可能被问到<code>__block</code>的问题, 与<code>__weak</code>的比较,或者是其作用.<code>__block</code>都是配合block体使用的,目的是让block内部能修改外部变量的值.</p>
+<p>举个例子:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)testBlock</div><div class="line">&#123;</div><div class="line">    <span class="keyword">typedef</span> <span class="keyword">void</span> (^Block)(<span class="keyword">void</span>);</div><div class="line">    </div><div class="line">    __block <span class="keyword">int</span> i = <span class="number">10</span>;</div><div class="line">    Block block = ^()&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"inner block 1 -- %d"</span>, i);</div><div class="line">        i = <span class="number">20</span>;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"inner block 2 -- %d"</span>, i);</div><div class="line">    &#125;;</div><div class="line">    i = <span class="number">30</span>;</div><div class="line">    block();</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"outer block -- %d"</span>, i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上述代码输出结果:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">2018</span><span class="number">-01</span><span class="number">-21</span> <span class="number">15</span>:<span class="number">43</span>:<span class="number">03.378546</span>+<span class="number">0800</span> Block[<span class="number">67824</span>:<span class="number">5612019</span>] inner block <span class="number">1</span> -- <span class="number">30</span></div><div class="line"><span class="number">2018</span><span class="number">-01</span><span class="number">-21</span> <span class="number">15</span>:<span class="number">43</span>:<span class="number">03.378726</span>+<span class="number">0800</span> Block[<span class="number">67824</span>:<span class="number">5612019</span>] inner block <span class="number">2</span> -- <span class="number">20</span></div><div class="line"><span class="number">2018</span><span class="number">-01</span><span class="number">-21</span> <span class="number">15</span>:<span class="number">43</span>:<span class="number">03.378845</span>+<span class="number">0800</span> Block[<span class="number">67824</span>:<span class="number">5612019</span>] outer block -- <span class="number">20</span></div></pre></td></tr></table></figure>
+<p>根据输出结果,<code>__block</code>确实起到作用,使变量在block内部被重新赋值.<br><code>__block</code>修饰符是如何起作用的,通过下面的例子,了解如何不使用<code>__block</code>关键字使block内部修改外部变量值,来理解block的作用过程.</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)testBlock_variant</div><div class="line">&#123;</div><div class="line">    <span class="keyword">typedef</span> <span class="keyword">void</span> (^Block)(<span class="keyword">void</span>);</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</div><div class="line">    <span class="keyword">int</span> * i_block = &amp;i;   <span class="comment">// 定义指针变量 i_block 指向 i 变量的地址</span></div><div class="line">    Block block = ^()&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"inner block 2 -- %d"</span>, * i_block); <span class="comment">// * i_block 取地址的值</span></div><div class="line">        * i_block = <span class="number">20</span>; <span class="comment">// 对 i_block对应地址的值进行修改</span></div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"inner block 2 -- %d"</span>, * i_block);</div><div class="line">    &#125;;</div><div class="line">    i = <span class="number">30</span>;</div><div class="line">    block();</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"outer block -- %d"</span>, i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上述代码输出结果:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">2018</span><span class="number">-03</span><span class="number">-09</span> <span class="number">15</span>:<span class="number">51</span>:<span class="number">18.395184</span>+<span class="number">0800</span> Block[<span class="number">67927</span>:<span class="number">5624382</span>] inner block <span class="number">2</span> -- <span class="number">30</span></div><div class="line"><span class="number">2018</span><span class="number">-03</span><span class="number">-09</span> <span class="number">15</span>:<span class="number">51</span>:<span class="number">18.395344</span>+<span class="number">0800</span> Block[<span class="number">67927</span>:<span class="number">5624382</span>] inner block <span class="number">2</span> -- <span class="number">20</span></div><div class="line"><span class="number">2018</span><span class="number">-03</span><span class="number">-09</span> <span class="number">15</span>:<span class="number">51</span>:<span class="number">18.395448</span>+<span class="number">0800</span> Block[<span class="number">67927</span>:<span class="number">5624382</span>] outer block -- <span class="number">20</span></div></pre></td></tr></table></figure>
+<p>与<code>__block</code>修饰效果一致.</p>
+<p><a href="https://github.com/MoWangChen/minutia-Experiment.git" target="_blank" rel="external">Demo下载地址 Block</a></p>
+<p>如有疑问或错误,欢迎大家批评指正.</p>
 
       
     </div>
@@ -328,7 +321,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS-WIFI-Profile/" rel="tag"># iOS WIFI Profile</a>
+            <a href="/tags/iOS-block/" rel="tag"># iOS block</a>
           
         </div>
       
@@ -341,8 +334,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/15/iOS_missing file_warning/" rel="next" title="iOS变更工程文件目录引起missing file警告">
-                <i class="fa fa-chevron-left"></i> iOS变更工程文件目录引起missing file警告
+              <a href="/2017/07/08/NEHotspotHelper/" rel="next" title="iOS NEHotspotHelper使用">
+                <i class="fa fa-chevron-left"></i> iOS NEHotspotHelper使用
               </a>
             
           </div>
@@ -350,10 +343,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/08/NEHotspotHelper/" rel="prev" title="iOS NEHotspotHelper使用">
-                iOS NEHotspotHelper使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -405,17 +394,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">Mowangchen</p>
@@ -467,22 +447,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、创建Configuration-Profile"><span class="nav-number">1.</span> <span class="nav-text">一、创建Configuration Profile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装Configuration-Profile"><span class="nav-number">2.</span> <span class="nav-text">二、安装Configuration Profile</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

@@ -72,7 +72,7 @@
 <meta name="description" content="我是莫忘尘,一个有着用代码改变世界梦想的人,这里是莫忘尘的收纳盒">
 <meta property="og:type" content="website">
 <meta property="og:title" content="莫忘尘的收纳盒">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="https://MoWangChen.github.io/index.html">
 <meta property="og:site_name" content="莫忘尘的收纳盒">
 <meta property="og:description" content="我是莫忘尘,一个有着用代码改变世界梦想的人,这里是莫忘尘的收纳盒">
 <meta property="og:locale" content="zh-CN">
@@ -108,7 +108,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="https://MoWangChen.github.io/"/>
 
 
 
@@ -222,7 +222,140 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/08/NEHotspotHelper/">
+    <link itemprop="mainEntityOfPage" href="https://MoWangChen.github.io/2018/01/21/Block_sketch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mowangchen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="莫忘尘的收纳盒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/21/Block_sketch/" itemprop="url">__Block浅谈</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T16:23:00+08:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote><p>常将有日思无日,<br>莫待无时思有时.</p>
+</blockquote>
+<p>很多同学在面试中都有可能被问到<code>__block</code>的问题, 与<code>__weak</code>的比较,或者是其作用.<code>__block</code>都是配合block体使用的,目的是让block内部能修改外部变量的值.</p>
+<p>举个例子:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)testBlock</div><div class="line">&#123;</div><div class="line">    <span class="keyword">typedef</span> <span class="keyword">void</span> (^Block)(<span class="keyword">void</span>);</div><div class="line">    </div><div class="line">    __block <span class="keyword">int</span> i = <span class="number">10</span>;</div><div class="line">    Block block = ^()&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"inner block 1 -- %d"</span>, i);</div><div class="line">        i = <span class="number">20</span>;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"inner block 2 -- %d"</span>, i);</div><div class="line">    &#125;;</div><div class="line">    i = <span class="number">30</span>;</div><div class="line">    block();</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"outer block -- %d"</span>, i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上述代码输出结果:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">2018</span><span class="number">-01</span><span class="number">-21</span> <span class="number">15</span>:<span class="number">43</span>:<span class="number">03.378546</span>+<span class="number">0800</span> Block[<span class="number">67824</span>:<span class="number">5612019</span>] inner block <span class="number">1</span> -- <span class="number">30</span></div><div class="line"><span class="number">2018</span><span class="number">-01</span><span class="number">-21</span> <span class="number">15</span>:<span class="number">43</span>:<span class="number">03.378726</span>+<span class="number">0800</span> Block[<span class="number">67824</span>:<span class="number">5612019</span>] inner block <span class="number">2</span> -- <span class="number">20</span></div><div class="line"><span class="number">2018</span><span class="number">-01</span><span class="number">-21</span> <span class="number">15</span>:<span class="number">43</span>:<span class="number">03.378845</span>+<span class="number">0800</span> Block[<span class="number">67824</span>:<span class="number">5612019</span>] outer block -- <span class="number">20</span></div></pre></td></tr></table></figure>
+<p>根据输出结果,<code>__block</code>确实起到作用,使变量在block内部被重新赋值.<br><code>__block</code>修饰符是如何起作用的,通过下面的例子,了解如何不使用<code>__block</code>关键字使block内部修改外部变量值,来理解block的作用过程.</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)testBlock_variant</div><div class="line">&#123;</div><div class="line">    <span class="keyword">typedef</span> <span class="keyword">void</span> (^Block)(<span class="keyword">void</span>);</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</div><div class="line">    <span class="keyword">int</span> * i_block = &amp;i;   <span class="comment">// 定义指针变量 i_block 指向 i 变量的地址</span></div><div class="line">    Block block = ^()&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"inner block 2 -- %d"</span>, * i_block); <span class="comment">// * i_block 取地址的值</span></div><div class="line">        * i_block = <span class="number">20</span>; <span class="comment">// 对 i_block对应地址的值进行修改</span></div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"inner block 2 -- %d"</span>, * i_block);</div><div class="line">    &#125;;</div><div class="line">    i = <span class="number">30</span>;</div><div class="line">    block();</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"outer block -- %d"</span>, i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上述代码输出结果:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">2018</span><span class="number">-03</span><span class="number">-09</span> <span class="number">15</span>:<span class="number">51</span>:<span class="number">18.395184</span>+<span class="number">0800</span> Block[<span class="number">67927</span>:<span class="number">5624382</span>] inner block <span class="number">2</span> -- <span class="number">30</span></div><div class="line"><span class="number">2018</span><span class="number">-03</span><span class="number">-09</span> <span class="number">15</span>:<span class="number">51</span>:<span class="number">18.395344</span>+<span class="number">0800</span> Block[<span class="number">67927</span>:<span class="number">5624382</span>] inner block <span class="number">2</span> -- <span class="number">20</span></div><div class="line"><span class="number">2018</span><span class="number">-03</span><span class="number">-09</span> <span class="number">15</span>:<span class="number">51</span>:<span class="number">18.395448</span>+<span class="number">0800</span> Block[<span class="number">67927</span>:<span class="number">5624382</span>] outer block -- <span class="number">20</span></div></pre></td></tr></table></figure>
+<p>与<code>__block</code>修饰效果一致.</p>
+<p><a href="https://github.com/MoWangChen/minutia-Experiment.git" target="_blank" rel="external">Demo下载地址 Block</a></p>
+<p>如有疑问或错误,欢迎大家批评指正.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://MoWangChen.github.io/2017/07/08/NEHotspotHelper/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mowangchen">
@@ -382,7 +515,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/15/WIFI_ConfigurationProfile/">
+    <link itemprop="mainEntityOfPage" href="https://MoWangChen.github.io/2017/06/15/WIFI_ConfigurationProfile/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mowangchen">
@@ -518,7 +651,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/iOS_missing file_warning/">
+    <link itemprop="mainEntityOfPage" href="https://MoWangChen.github.io/2017/05/15/iOS_missing file_warning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mowangchen">
@@ -645,7 +778,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/Enum/">
+    <link itemprop="mainEntityOfPage" href="https://MoWangChen.github.io/2017/03/21/Enum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mowangchen">
@@ -829,7 +962,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -842,7 +975,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">Tags</span>
               
             </div>
