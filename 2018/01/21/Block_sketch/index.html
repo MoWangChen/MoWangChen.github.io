@@ -53,7 +53,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS block," />
+  <meta name="keywords" content="iOS  block," />
 
 
 
@@ -70,14 +70,14 @@
 
 
 <meta name="description" content="常将有日思无日,莫待无时思有时.  很多同学在面试中都有可能被问到__block的问题, 与__weak的比较,或者是其作用.__block都是配合block体使用的,目的是让block内部能修改外部变量的值. 举个例子: 1234567891011121314- (void)testBlock&amp;#123;    typedef void (^Block)(void);        __bloc">
-<meta name="keywords" content="iOS block">
+<meta name="keywords" content="iOS  block">
 <meta property="og:type" content="article">
 <meta property="og:title" content="__Block浅谈">
 <meta property="og:url" content="https://MoWangChen.github.io/2018/01/21/Block_sketch/index.html">
 <meta property="og:site_name" content="莫忘尘的收纳盒">
 <meta property="og:description" content="常将有日思无日,莫待无时思有时.  很多同学在面试中都有可能被问到__block的问题, 与__weak的比较,或者是其作用.__block都是配合block体使用的,目的是让block内部能修改外部变量的值. 举个例子: 1234567891011121314- (void)testBlock&amp;#123;    typedef void (^Block)(void);        __bloc">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-09T08:24:24.249Z">
+<meta property="og:updated_time" content="2018-03-12T10:11:14.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="__Block浅谈">
 <meta name="twitter:description" content="常将有日思无日,莫待无时思有时.  很多同学在面试中都有可能被问到__block的问题, 与__weak的比较,或者是其作用.__block都是配合block体使用的,目的是让block内部能修改外部变量的值. 举个例子: 1234567891011121314- (void)testBlock&amp;#123;    typedef void (^Block)(void);        __bloc">
@@ -176,7 +176,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -250,7 +250,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T16:23:00+08:00">
                 2018-01-21
@@ -298,9 +298,9 @@
 <p>上述代码输出结果:</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">2018</span><span class="number">-01</span><span class="number">-21</span> <span class="number">15</span>:<span class="number">43</span>:<span class="number">03.378546</span>+<span class="number">0800</span> Block[<span class="number">67824</span>:<span class="number">5612019</span>] inner block <span class="number">1</span> -- <span class="number">30</span></div><div class="line"><span class="number">2018</span><span class="number">-01</span><span class="number">-21</span> <span class="number">15</span>:<span class="number">43</span>:<span class="number">03.378726</span>+<span class="number">0800</span> Block[<span class="number">67824</span>:<span class="number">5612019</span>] inner block <span class="number">2</span> -- <span class="number">20</span></div><div class="line"><span class="number">2018</span><span class="number">-01</span><span class="number">-21</span> <span class="number">15</span>:<span class="number">43</span>:<span class="number">03.378845</span>+<span class="number">0800</span> Block[<span class="number">67824</span>:<span class="number">5612019</span>] outer block -- <span class="number">20</span></div></pre></td></tr></table></figure>
 <p>根据输出结果,<code>__block</code>确实起到作用,使变量在block内部被重新赋值.<br><code>__block</code>修饰符是如何起作用的,通过下面的例子,了解如何不使用<code>__block</code>关键字使block内部修改外部变量值,来理解block的作用过程.</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)testBlock_variant</div><div class="line">&#123;</div><div class="line">    <span class="keyword">typedef</span> <span class="keyword">void</span> (^Block)(<span class="keyword">void</span>);</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</div><div class="line">    <span class="keyword">int</span> * i_block = &amp;i;   <span class="comment">// 定义指针变量 i_block 指向 i 变量的地址</span></div><div class="line">    Block block = ^()&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"inner block 2 -- %d"</span>, * i_block); <span class="comment">// * i_block 取地址的值</span></div><div class="line">        * i_block = <span class="number">20</span>; <span class="comment">// 对 i_block对应地址的值进行修改</span></div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"inner block 2 -- %d"</span>, * i_block);</div><div class="line">    &#125;;</div><div class="line">    i = <span class="number">30</span>;</div><div class="line">    block();</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"outer block -- %d"</span>, i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)testBlock_variant</div><div class="line">&#123;</div><div class="line">    <span class="keyword">typedef</span> <span class="keyword">void</span> (^Block)(<span class="keyword">void</span>);</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</div><div class="line">    <span class="keyword">int</span> * i_block = &amp;i;   <span class="comment">// 定义指针变量 i_block 指向 i 变量的地址</span></div><div class="line">    Block block = ^()&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"inner block 1 -- %d"</span>, * i_block); <span class="comment">// * i_block 取地址的值</span></div><div class="line">        * i_block = <span class="number">20</span>; <span class="comment">// 对 i_block对应地址的值进行修改</span></div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"inner block 2 -- %d"</span>, * i_block);</div><div class="line">    &#125;;</div><div class="line">    i = <span class="number">30</span>;</div><div class="line">    block();</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"outer block -- %d"</span>, i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>上述代码输出结果:</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">2018</span><span class="number">-03</span><span class="number">-09</span> <span class="number">15</span>:<span class="number">51</span>:<span class="number">18.395184</span>+<span class="number">0800</span> Block[<span class="number">67927</span>:<span class="number">5624382</span>] inner block <span class="number">2</span> -- <span class="number">30</span></div><div class="line"><span class="number">2018</span><span class="number">-03</span><span class="number">-09</span> <span class="number">15</span>:<span class="number">51</span>:<span class="number">18.395344</span>+<span class="number">0800</span> Block[<span class="number">67927</span>:<span class="number">5624382</span>] inner block <span class="number">2</span> -- <span class="number">20</span></div><div class="line"><span class="number">2018</span><span class="number">-03</span><span class="number">-09</span> <span class="number">15</span>:<span class="number">51</span>:<span class="number">18.395448</span>+<span class="number">0800</span> Block[<span class="number">67927</span>:<span class="number">5624382</span>] outer block -- <span class="number">20</span></div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">2018</span><span class="number">-01</span><span class="number">-21</span> <span class="number">15</span>:<span class="number">51</span>:<span class="number">18.395184</span>+<span class="number">0800</span> Block[<span class="number">67927</span>:<span class="number">5624382</span>] inner block <span class="number">2</span> -- <span class="number">30</span></div><div class="line"><span class="number">2018</span><span class="number">-01</span><span class="number">-21</span> <span class="number">15</span>:<span class="number">51</span>:<span class="number">18.395344</span>+<span class="number">0800</span> Block[<span class="number">67927</span>:<span class="number">5624382</span>] inner block <span class="number">2</span> -- <span class="number">20</span></div><div class="line"><span class="number">2018</span><span class="number">-01</span><span class="number">-21</span> <span class="number">15</span>:<span class="number">51</span>:<span class="number">18.395448</span>+<span class="number">0800</span> Block[<span class="number">67927</span>:<span class="number">5624382</span>] outer block -- <span class="number">20</span></div></pre></td></tr></table></figure>
 <p>与<code>__block</code>修饰效果一致.</p>
 <p><a href="https://github.com/MoWangChen/minutia-Experiment.git" target="_blank" rel="external">Demo下载地址 Block</a></p>
 <p>如有疑问或错误,欢迎大家批评指正.</p>
@@ -321,7 +321,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS-block/" rel="tag"># iOS block</a>
+            <a href="/tags/iOS-block/" rel="tag"># iOS  block</a>
           
         </div>
       
@@ -410,7 +410,7 @@
               <a href="/archives/">
             
                 <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -423,7 +423,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -474,7 +474,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" href="https://hexo.io">Hexo</a></div>
 
   <span class="post-meta-divider">|</span>
 
